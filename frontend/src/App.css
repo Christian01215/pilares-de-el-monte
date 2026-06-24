@@ -1,0 +1,98 @@
+/* Colores base y tipografía general */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fcf8f2;
+}
+
+.contenedor-principal {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HEADER --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5%;
+  background-color: transparent;
+}
+
+.logo {
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: normal;
+  color: #000;
+}
+
+.enlaces-nav a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* --- SECCIÓN HERO (HISTORIA Y PROCESO) --- */
+.seccion-hero {
+  background-image: url('https://www.transparenttextures.com/patterns/old-wall.png'); 
+  background-color: #eeddbb;
+  background-size: cover;
+  background-position: center;
+  padding: 8rem 10%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.contenido-hero {
+  max-width: 500px;
+}
+
+.contenido-hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.contenido-hero p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* --- FOOTER --- */
+.seccion-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 10%;
+  background-color: #fcf8f2;
+  margin-top: auto;
+}
+
+.columna-footer {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.columna-footer h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.columna-footer p {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+.pagina-temporal {
+  padding: 8rem 10%;
+  text-align: center;
+  min-height: 50vh;
+  font-family: 'Arial', sans-serif;
+}

@@ -1,0 +1,20 @@
+# Entornos virtuales
+venv/
+env/
+
+# Dependencias de Node (parece que tienes un package.json en el backend)
+node_modules/
+
+# Base de datos local
+db.sqlite3
+
+# Archivos multimedia subidos por usuarios
+media/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Variables de entorno y contraseñas
+.env
