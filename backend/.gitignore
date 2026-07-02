@@ -21,5 +21,4 @@ __pycache__/
 # Archivos estáticos generados para producción (Render / WhiteNoise)
 staticfiles/
 
-# Configuraciones locales del editor
 .vscode/
