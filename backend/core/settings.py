@@ -124,7 +124,9 @@ STATIC_URL = 'static/'
 
 # Configuración de permisos CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # El puerto por defecto donde corre tu React (Vite)
+    "http://localhost:5173"
+    "https://pilares-de-el-monte-a8htglkfu-fclass-utem.vercel.app",  # El puerto por defecto donde corre tu React (Vite)
+    'http://127.0.0.1:5173',
 ]
 # Configuración de archivos multimedia (imágenes de los vinos)
 MEDIA_URL = '/media/'
