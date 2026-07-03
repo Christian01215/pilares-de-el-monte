@@ -124,11 +124,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Configuración de permisos CORS
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'https://pilares-de-el-monte-a8htglkfu-fclass-utem.vercel.app',
-]
+CORS_ALLOW_ALL_ORIGINS = True
 # Configuración de archivos multimedia (imágenes de los vinos)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
