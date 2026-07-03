@@ -130,7 +130,7 @@ const Clases = () => {
 
   useEffect(() => {
     // 1. Cargar el fondo y título de la sección
-    fetch('http://127.0.0.1:8000/api/secciones/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
       .then(respuesta => respuesta.json())
       .then(datos => {
         const seccionClases = datos.find(seccion => seccion.identificador === 'clases');
@@ -139,7 +139,7 @@ const Clases = () => {
       .catch(error => console.error("Error al cargar fondo:", error));
 
     // 2. Cargar las tarjetas de clases (Apunta a la futura API de clases)
-    fetch('http://127.0.0.1:8000/api/clases/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/clases/')
       .then(respuesta => respuesta.json())
       .then(datos => setClases(datos))
       .catch(error => console.error("Aún no existe la API de clases en Django:", error));
@@ -262,7 +262,7 @@ const Proceso = () => {
   const [procesoData, setProcesoData] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/secciones/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
       .then(respuesta => respuesta.json())
       .then(datos => {
         const seccionProceso = datos.find(seccion => seccion.identificador === 'proceso');
@@ -365,7 +365,7 @@ const Vinos = () => {
   const [filtroActivo, setFiltroActivo] = useState("Todos");
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/secciones/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
       .then(respuesta => respuesta.json())
       .then(datos => {
         const seccionCatalogo = datos.find(seccion => seccion.identificador === 'catalogo');
@@ -373,7 +373,7 @@ const Vinos = () => {
       })
       .catch(error => console.error("Error al cargar el fondo:", error));
 
-    fetch('http://127.0.0.1:8000/api/vinos/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/vinos/')
       .then(respuesta => respuesta.json())
       .then(datos => {
         setVinos(datos);
