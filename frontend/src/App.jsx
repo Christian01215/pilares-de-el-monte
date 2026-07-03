@@ -7,7 +7,7 @@ const Inicio = () => {
   const [historia, setHistoria] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/secciones/')
+    fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
       .then(respuesta => respuesta.json())
       .then(datos => {
         const seccionHistoria = datos.find(seccion => seccion.identificador === 'historia');
