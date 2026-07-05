@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Vino, Cepa, Seccion, Clase
+from .models import Vino, Cepa, Seccion, Clase, Recuerdo
 
 
 class CepaSerializer(serializers.ModelSerializer):
@@ -20,4 +20,9 @@ class SeccionSerializer(serializers.ModelSerializer):
 class ClaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clase
+        fields = '__all__'
+
+class RecuerdoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recuerdo
         fields = '__all__'
