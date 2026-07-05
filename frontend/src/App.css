@@ -16,28 +16,33 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 5%;
-  background-color: transparent;
+  background-color: #450a0a;
 }
 
 .logo {
   font-size: 2rem;
   font-style: italic;
   font-weight: normal;
-  color: #000;
+  color: #ffff;
 }
 
 .enlaces-nav a {
   text-decoration: none;
-  color: #000;
+  color: #ffff;
   margin-left: 2rem;
   font-size: 0.9rem;
   font-family: 'Arial', sans-serif;
   letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.enlaces-nav a:hover {
+  color: #808080;
 }
 
 /* --- SECCIÓN HERO (HISTORIA Y PROCESO) --- */
 .seccion-hero {
-  background-image: url('https://www.transparenttextures.com/patterns/old-wall.png'); 
+  background-image: url('https://www.transparenttextures.com/patterns/old-wall.png');
   background-color: #eeddbb;
   background-size: cover;
   background-position: center;
@@ -95,4 +100,28 @@ body {
   text-align: center;
   min-height: 50vh;
   font-family: 'Arial', sans-serif;
+}
+
+/* --- UTILIDADES VISUALES (CARRUSEL DE VINOS) --- */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scrollbar personalizada para el popup de vinos */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #fcd34d; /* amber-300 */
+  border-radius: 10px;
 }
