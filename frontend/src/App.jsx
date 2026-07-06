@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Wine, ChevronRight, ChevronLeft, X, Sparkles, Calendar, Clock, MapPin, Tag, Menu } from "lucide-react";
+import { Wine, ChevronRight, ChevronLeft, X, Sparkles, Calendar, Clock, MapPin, Tag, Menu, Mail, MessageCircle, Phone, User } from "lucide-react";
 import './App.css';
 
 const Navbar = () => {
@@ -13,35 +13,35 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center px-4 sm:px-8 py-6 relative z-50 bg-transparent">
-
+      
       {/* Título Responsivo */}
       <Link to="/" className="font-serif text-2xl sm:text-3xl italic text-[#7f1d1d] truncate pr-4">
         Pilares de El Monte
       </Link>
-
-      <button
+      
+      <button 
         onClick={() => setMenuAbierto(true)}
         className="text-[#7f1d1d] hover:text-[#450a0a] transition-colors p-2 relative z-50 shrink-0"
       >
         <Menu className="w-8 h-8" />
       </button>
-
+      
       {/* Fondo oscuro móvil */}
       {menuAbierto && (
-        <div
+        <div 
           className="fixed inset-0 bg-stone-900/50 z-40 animate-in fade-in duration-300"
           onClick={() => setMenuAbierto(false)}
         ></div>
       )}
 
       {/* Menú lateral */}
-      <div
+      <div 
         className={`fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-amber-50/98 border-l border-amber-200 shadow-2xl p-6 sm:p-8 flex flex-col gap-6 z-50 transform transition-transform duration-300 ease-out will-change-transform ${
           menuAbierto ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex justify-end mb-2">
-          <button
+          <button 
             onClick={() => setMenuAbierto(false)}
             className="text-[#7f1d1d] hover:text-[#450a0a] bg-amber-100/50 hover:bg-amber-200 rounded-full p-2 transition-colors"
           >
@@ -61,7 +61,7 @@ const Navbar = () => {
         <div className="h-px w-full bg-amber-200/50"></div>
         <Link to="/contactanos" className="text-[#7f1d1d] hover:text-[#450a0a] font-medium font-sans tracking-widest text-sm hover:translate-x-2 transition-transform">CONTÁCTANOS</Link>
       </div>
-
+      
     </nav>
   );
 };
@@ -82,15 +82,15 @@ const Inicio = () => {
   return (
     <div className="bg-amber-50 min-h-screen pb-20 animate-in fade-in duration-700">
       <section className="flex flex-col items-center justify-center py-12 sm:py-20 px-4 sm:px-8 text-center bg-gradient-to-b from-[#eeddbb] to-amber-50 border-b border-amber-200">
-
+        
         <div className="w-32 h-32 sm:w-40 sm:h-40 mb-8 rounded-full bg-white shadow-xl flex items-center justify-center hover:scale-105 hover:rotate-3 transition-all duration-500 cursor-pointer border-4 border-amber-100 overflow-hidden group p-2 shrink-0">
-          <img
-            src="/logo.png"
-            alt="Logo Pilares de El Monte"
-            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+          <img 
+            src="/logo.png" 
+            alt="Logo Pilares de El Monte" 
+            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300" 
           />
         </div>
-
+        
         <h1 className="font-serif text-4xl sm:text-5xl text-stone-900 mb-6">Quiénes Somos</h1>
         <p className="text-base sm:text-lg text-stone-700 max-w-2xl mx-auto leading-relaxed mb-10 px-2">
           En Pilares de El Monte, cada botella cuenta una historia. Somos una viña familiar dedicada a rescatar el patrimonio vitivinícola de San Francisco de El Monte, honrando las tradiciones de nuestros antepasados y compartiendo nuestra pasión por la tierra.
@@ -99,9 +99,9 @@ const Inicio = () => {
         {datosInicio && datosInicio.imagen_fondo && (
           <div className="bg-white p-2 sm:p-4 shadow-xl border border-amber-100 rotate-1 hover:rotate-0 transition-transform duration-500 max-w-4xl mx-auto w-full">
             <div className="h-[250px] sm:h-[400px] md:h-[500px] flex flex-col items-center justify-center border-2 border-dashed border-amber-300 relative overflow-hidden bg-stone-100">
-              <img
-                src={datosInicio.imagen_fondo}
-                alt="Pilares de El Monte - Viña"
+              <img 
+                src={datosInicio.imagen_fondo} 
+                alt="Pilares de El Monte - Viña" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -158,10 +158,10 @@ const Historia = () => {
 
   return (
     <div className="bg-amber-50 min-h-screen pt-12 sm:pt-20 flex flex-col">
-
+      
       <div className="px-4 sm:px-8 mb-16 flex-grow">
         <div className="max-w-4xl mx-auto bg-white p-6 sm:p-12 rounded-xl shadow-lg border border-amber-200 text-center animate-in slide-in-from-bottom-10 duration-700 relative z-10">
-
+          
           <h1 className="font-serif text-3xl sm:text-4xl text-stone-900 mb-8">
             {datosHistoria?.titulo || "Nuestra Historia"}
           </h1>
@@ -169,9 +169,9 @@ const Historia = () => {
           {datosHistoria && datosHistoria.imagen_fondo && (
             <div className="bg-white p-2 md:p-4 shadow-xl border border-amber-100 rotate-1 hover:rotate-0 transition-transform duration-500 max-w-3xl mx-auto w-full mb-8 sm:mb-10">
               <div className="h-[200px] sm:h-[400px] flex flex-col items-center justify-center border-2 border-dashed border-amber-300 relative overflow-hidden bg-stone-100">
-                <img
-                  src={datosHistoria.imagen_fondo}
-                  alt="Historia Pilares de El Monte"
+                <img 
+                  src={datosHistoria.imagen_fondo} 
+                  alt="Historia Pilares de El Monte" 
                   className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -189,7 +189,7 @@ const Historia = () => {
       </div>
 
       <div className="w-full bg-[#4a1216] relative overflow-hidden shadow-[0_-10px_30px_rgba(0,0,0,0.1)] py-12 sm:py-16 animate-in fade-in duration-1000 delay-300 mt-auto">
-
+        
         <div className="absolute -bottom-4 sm:-bottom-6 -right-2 sm:-right-4 text-[8rem] sm:text-[14rem] font-serif text-white/5 font-bold pointer-events-none select-none leading-none">
           1998
         </div>
@@ -200,7 +200,7 @@ const Historia = () => {
           </h2>
 
           <div className="relative flex justify-between items-start max-w-4xl mx-auto">
-
+            
             {/* Línea horizontal (ajustada para móvil y pc) */}
             <div className="absolute top-2.5 sm:top-3 left-0 w-full h-px bg-amber-700/50"></div>
 
@@ -231,14 +231,14 @@ const Historia = () => {
           </div>
         </div>
       </div>
-
+      
     </div>
   );
 };
 
 const Clases = () => {
   const [fondoData, setFondoData] = useState(null);
-  const [clases, setClases] = useState([]);
+  const [clases, setClases] = useState([]); 
 
   useEffect(() => {
     fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
@@ -282,12 +282,12 @@ const Clases = () => {
 
   return (
     <div className="bg-amber-50 text-stone-900 pb-10 min-h-screen">
-      <section
+      <section 
         className="relative py-14 px-4 sm:px-8 text-center bg-cover bg-center border-b border-amber-200"
         style={fondoData?.imagen_fondo ? { backgroundImage: `url(${fondoData.imagen_fondo})` } : {}}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-amber-100/90 via-amber-50/95 to-amber-50 backdrop-blur-[2px]"></div>
-
+        
         <div className="relative z-10">
           <div className="w-16 h-16 rounded-full bg-white border-4 border-amber-600 flex items-center justify-center mx-auto mb-4 shadow-md overflow-hidden">
             <img src="/logo.png" alt="Logo Pilares del Monte" className="w-full h-full object-contain scale-[2.5]" />
@@ -344,8 +344,8 @@ const Clases = () => {
                 <p className="text-xs text-stone-500 mb-2">
                   Para inscribirte o consultar, comunícate con nosotros.
                 </p>
-                <Link
-                  to="/contactanos"
+                <Link 
+                  to="/contactanos" 
                   className="inline-block font-serif italic text-amber-700 hover:text-red-900 font-medium transition-colors text-sm sm:text-base"
                 >
                   Ir a la sección de contacto →
@@ -357,7 +357,7 @@ const Clases = () => {
       </section>
     </div>
   );
-};
+};  
 
 const Recuerdos = () => {
   const [recuerdos, setRecuerdos] = useState([]);
@@ -392,10 +392,10 @@ const Recuerdos = () => {
           <div className="space-y-20 sm:space-y-24">
             {recuerdos.map((recuerdo, index) => {
               const isEven = index % 2 === 0;
-
+              
               return (
-                <div
-                  key={recuerdo.id}
+                <div 
+                  key={recuerdo.id} 
                   className={`flex flex-col md:flex-row items-center gap-8 sm:gap-10 md:gap-16 ${!isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   <div className="w-full md:w-1/2 flex justify-center">
@@ -404,9 +404,9 @@ const Recuerdos = () => {
                         className="h-60 sm:h-80 flex flex-col items-center justify-center border-2 border-dashed border-amber-300 relative overflow-hidden bg-stone-100"
                       >
                         {recuerdo.imagen ? (
-                          <img
-                            src={recuerdo.imagen}
-                            alt={recuerdo.titulo}
+                          <img 
+                            src={recuerdo.imagen} 
+                            alt={recuerdo.titulo} 
                             className="w-full h-full object-cover"
                           />
                         ) : (
@@ -426,7 +426,7 @@ const Recuerdos = () => {
                       <h2 className="font-serif text-2xl sm:text-3xl text-stone-900 mb-1">{recuerdo.titulo}</h2>
                       <div className={`h-0.5 w-16 bg-amber-600 ${isEven ? 'mx-auto md:ml-0' : 'mx-auto md:ml-auto md:mr-0'}`}></div>
                     </div>
-
+                    
                     <p className="text-stone-700 leading-relaxed whitespace-pre-wrap text-base sm:text-lg">
                       {recuerdo.descripcion}
                     </p>
@@ -446,7 +446,7 @@ const Vinos = () => {
   const [cepas, setCepas] = useState([]);
   const [filtro, setFiltro] = useState('disponibles');
   const [vinoSeleccionado, setVinoSeleccionado] = useState(null);
-
+  
   const carruselRef = useRef(null);
 
   useEffect(() => {
@@ -469,7 +469,7 @@ const Vinos = () => {
 
   const moverCarrusel = (direccion) => {
     if (carruselRef.current) {
-      const desplazamiento = direccion === 'izq' ? -300 : 300;
+      const desplazamiento = direccion === 'izq' ? -300 : 300; 
       carruselRef.current.scrollBy({ left: desplazamiento, behavior: 'smooth' });
     }
   };
@@ -539,7 +539,7 @@ const Vinos = () => {
 
                 <div className="p-4 sm:p-5 flex flex-col flex-grow">
                   <div className="h-0.5 w-10 mb-3 bg-red-900" />
-
+                  
                   <div className="flex justify-between items-center mb-3">
                     <span className="text-[10px] sm:text-xs tracking-widest text-amber-700 font-semibold uppercase">
                       COSECHA {vino.cosecha || vino.anio_cosecha}
@@ -548,17 +548,17 @@ const Vinos = () => {
                       ${vino.precio?.toLocaleString('es-CL')}
                     </span>
                   </div>
-
+                  
                   <span className="self-start text-[10px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2 py-1 rounded mb-2">
                     {obtenerNombreCepa(vino.cepa)}
                   </span>
 
                   <h3 className="font-serif text-base sm:text-lg text-stone-900 mb-2 leading-snug">{vino.nombre}</h3>
-
+                  
                   <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4 flex-grow italic line-clamp-3">
                     {vino.maridaje ? `Maridaje: ${vino.maridaje}` : "Haz clic para ver los detalles y notas de cata."}
                   </p>
-
+                  
                   <div className="flex items-center gap-1 text-xs sm:text-sm font-medium text-red-900 transition-all mt-auto pt-3 sm:pt-4 border-t border-amber-100">
                     Ver detalles <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -577,8 +577,8 @@ const Vinos = () => {
       {vinoSeleccionado && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-stone-900/80 backdrop-blur-sm">
           <div className="bg-amber-50 w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative animate-in fade-in zoom-in-95 duration-300">
-
-            <button
+            
+            <button 
               onClick={() => setVinoSeleccionado(null)}
               className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full text-stone-800 shadow-sm transition-colors"
             >
@@ -587,10 +587,10 @@ const Vinos = () => {
 
             <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-6 sm:p-8 border-b md:border-b-0 md:border-r border-amber-100 h-48 sm:h-auto shrink-0">
               {vinoSeleccionado.imagen ? (
-                <img
-                  src={vinoSeleccionado.imagen}
-                  alt={vinoSeleccionado.nombre}
-                  className="w-full h-full object-contain hover:scale-110 transition-transform duration-700"
+                <img 
+                  src={vinoSeleccionado.imagen} 
+                  alt={vinoSeleccionado.nombre} 
+                  className="w-full h-full object-contain hover:scale-110 transition-transform duration-700" 
                 />
               ) : (
                 <Wine className="w-20 h-20 sm:w-32 sm:h-32 text-amber-200" />
@@ -601,11 +601,11 @@ const Vinos = () => {
               <span className="text-xs sm:text-sm tracking-widest text-amber-700 font-semibold uppercase mb-2">
                 COSECHA {vinoSeleccionado.cosecha || vinoSeleccionado.anio_cosecha}
               </span>
-
+              
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-stone-900 mb-2 leading-tight">
                 {vinoSeleccionado.nombre}
               </h2>
-
+              
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <span className="text-xs sm:text-sm font-bold text-amber-900 bg-amber-200 px-3 py-1 rounded-full">
                   {obtenerNombreCepa(vinoSeleccionado.cepa)}
@@ -633,8 +633,8 @@ const Vinos = () => {
                 </div>
               )}
 
-              <Link
-                to="/contactanos"
+              <Link 
+                to="/contactanos" 
                 className="mt-auto block w-full text-center bg-red-900 text-amber-50 py-2.5 sm:py-3 rounded hover:bg-red-950 transition-colors font-serif text-base sm:text-lg shadow-md"
               >
                 {filtro === 'disponibles' ? 'Agendar cata' : 'Consultar disponibilidad'}
@@ -647,14 +647,144 @@ const Vinos = () => {
   );
 };
 
-const Contactanos = () => (
-  <div className="bg-amber-50 text-stone-900 min-h-[60vh] flex items-center justify-center p-8">
-    <div className="text-center">
-      <h2 className="font-serif text-4xl text-[#7f1d1d] mb-4">Envíanos un mensaje</h2>
-      <p className="text-stone-600">Página de contacto en construcción.</p>
-    </div>
-  </div>
+const IconoInstagram = ({ className }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
 );
+
+const Contactanos = () => {
+  const [datosContacto, setDatosContacto] = useState(null);
+  const [alertaWa, setAlertaWa] = useState(false);
+
+  // 1. Conexión con Django para traer la información editable
+  useEffect(() => {
+    fetch('https://pilares-de-el-monte.onrender.com/api/secciones/')
+      .then(respuesta => respuesta.json())
+      .then(datos => {
+        const seccionContacto = datos.find(seccion => seccion.identificador === 'contacto');
+        setDatosContacto(seccionContacto);
+      })
+      .catch(error => console.error("Error al cargar contacto:", error));
+  }, []);
+
+  // 2. Lógica Inteligente del Horario de WhatsApp
+  const handleWhatsApp = () => {
+    const horaActual = new Date().getHours();
+    
+    // Si la hora es entre las 08:00 y las 17:59
+    if (horaActual >= 8 && horaActual < 18) {
+      window.open('https://wa.me/56930342433', '_blank');
+    } else {
+      // Fuera de horario: mostramos la alerta elegante
+      setAlertaWa(true);
+      // Ocultar automáticamente después de 5 segundos
+      setTimeout(() => setAlertaWa(false), 5000);
+    }
+  };
+
+  return (
+    <div className="bg-amber-50 min-h-screen pb-20 relative overflow-hidden">
+      
+      {/* SECCIÓN HERO (Fondo dinámico desde Django) */}
+      <section 
+        className="relative py-20 px-4 sm:px-8 text-center bg-cover bg-center border-b border-amber-200"
+        style={datosContacto?.imagen_fondo ? { backgroundImage: `url(${datosContacto.imagen_fondo})` } : { backgroundColor: '#eeddbb' }}
+      >
+        <div className="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px]"></div>
+        
+        <div className="relative z-10 animate-in fade-in slide-in-from-bottom-5 duration-700 max-w-3xl mx-auto">
+          <h1 className="font-serif text-4xl sm:text-6xl text-amber-50 mb-4 drop-shadow-lg">
+            {datosContacto?.titulo || "Hablemos"}
+          </h1>
+          <div className="h-0.5 w-24 bg-amber-500 mx-auto mb-6"></div>
+          <p className="text-lg sm:text-xl text-amber-100/90 leading-relaxed whitespace-pre-wrap font-light">
+            {datosContacto?.contenido || "Estamos aquí para responder tus dudas, agendar tus visitas y compartir nuestra pasión por el vino de San Francisco de El Monte."}
+          </p>
+        </div>
+      </section>
+
+      {/* TARJETAS DE CONTACTO (Interactividad de redirección) */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-8 -mt-10 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Tarjeta Email */}
+          <a 
+            href="mailto:armijopilares@gmail.com"
+            className="bg-white p-8 rounded-xl shadow-lg border border-amber-100 flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group"
+          >
+            <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#7f1d1d] transition-colors duration-500">
+              <Mail className="w-6 h-6 text-[#7f1d1d] group-hover:text-amber-50" />
+            </div>
+            <h3 className="font-serif text-xl text-stone-900 mb-2">Correo Electrónico</h3>
+            <p className="text-stone-500 text-sm mb-4">Escríbenos directamente</p>
+            <span className="font-medium text-[#7f1d1d] group-hover:underline">armijopilares@gmail.com</span>
+          </a>
+
+          {/* Tarjeta Instagram */}
+          <a 
+            href="https://www.instagram.com/vinopilaresdeelmonte?igsh=MW43bzV0Mmd5bmJ3ag=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white p-8 rounded-xl shadow-lg border border-amber-100 flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group"
+          >
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#6b1a20] flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+  <IconoInstagram className="w-6 h-6 sm:w-7 sm:h-7 text-[#e8dcb9]" />
+</div>
+            <h3 className="font-serif text-xl text-stone-900 mb-2">Instagram</h3>
+            <p className="text-stone-500 text-sm mb-4">Síguenos en redes sociales</p>
+            <span className="font-medium text-[#b45309] group-hover:underline">@vinopilaresdeelmonte</span>
+          </a>
+
+          {/* Tarjeta Ubicación (No clickeable, solo informativa) */}
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-amber-100 flex flex-col items-center text-center group hover:border-amber-300 transition-colors">
+            <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6">
+              <MapPin className="w-6 h-6 text-stone-600" />
+            </div>
+            <h3 className="font-serif text-xl text-stone-900 mb-2">Nuestra Viña</h3>
+            <p className="text-stone-500 text-sm mb-4">Visítanos en</p>
+            <span className="font-medium text-stone-700">Moisés Chacón 78,<br/>San Francisco de El Monte</span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* BURBUJA DE WHATSAPP FLOTANTE E INTELIGENTE */}
+      <div className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-50 flex flex-col items-end">
+        
+        {/* Alerta de "Fuera de Horario" (Aparece solo si el usuario pincha de noche) */}
+        {alertaWa && (
+          <div className="mb-4 bg-white p-4 rounded-xl shadow-2xl border-l-4 border-amber-600 max-w-[280px] animate-in slide-in-from-bottom-5 fade-in duration-300 relative">
+            <button onClick={() => setAlertaWa(false)} className="absolute top-2 right-2 text-stone-400 hover:text-stone-600">
+              <X className="w-4 h-4" />
+            </button>
+            <p className="font-serif text-stone-900 text-sm mb-1 font-bold">Fuera de horario</p>
+            <p className="text-xs text-stone-600 leading-tight">
+              Actualmente estamos descansando. Nuestro horario de atención es de 08:00 a 18:00 hrs. ¡Te esperamos mañana!
+            </p>
+          </div>
+        )}
+
+        {/* Botón Principal */}
+        <button 
+          onClick={handleWhatsApp}
+          className="bg-green-600 text-white p-4 rounded-full shadow-[0_10px_20px_rgba(22,163,74,0.3)] hover:bg-green-500 hover:scale-110 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group"
+          title="Chatea con nosotros en WhatsApp"
+        >
+          <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10" />
+          
+          {/* Pequeño globo de texto que dice "Hablemos" y aparece al pasar el mouse */}
+          <span className="absolute right-full mr-4 bg-stone-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 hidden sm:block">
+            Hablemos por WhatsApp
+          </span>
+        </button>
+      </div>
+
+    </div>
+  );
+};
 
 // NUEVO FOOTER RESPONSIVO EN TAILWIND
 const Footer = () => (
@@ -695,7 +825,7 @@ function App() {
         </main>
 
         <Footer />
-
+        
       </div>
     </Router>
   );
