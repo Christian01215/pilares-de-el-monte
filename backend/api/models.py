@@ -11,6 +11,7 @@ class Vino(models.Model):
     cepa = models.ForeignKey(Cepa, related_name='vinos', on_delete=models.SET_NULL, null=True)
     cosecha = models.IntegerField(help_text="Año de la cosecha, ej: 2022")
     descripcion = models.TextField(help_text="Notas de cata, maridaje, etc.")
+    maridaje = models.CharField(max_length=200, blank=True, null=True, help_text="Ej: Ideal para carnes rojas y quesos maduros")
     precio = models.IntegerField(help_text="Precio en pesos chilenos")
     stock = models.IntegerField(default=0)
     imagen = models.ImageField(upload_to='vinos/', null=True, blank=True)
@@ -41,3 +42,13 @@ class Clase(models.Model):
 
     def __str__(self):
         return f"{self.tipo}: {self.titulo}"
+    
+class Recuerdo(models.Model):
+    titulo = models.CharField(max_length=200, help_text="Ej: Fiesta de la Vendimia 2023")
+    fecha = models.CharField(max_length=100, help_text="Ej: Marzo 2023")
+    descripcion = models.TextField(blank=True, null=True, help_text="Breve descripción del evento")
+    imagen = models.ImageField(upload_to='recuerdos/', help_text="Sube la foto del recuerdo aquí")
+    creado_en = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.fecha} - {self.titulo}"
