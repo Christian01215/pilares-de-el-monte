@@ -128,3 +128,16 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Configuración de archivos multimedia (imágenes de los vinos)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Configuración de Cloudinary
+cloudinary.config(
+    cloud_name = 'tu_nombre',
+    api_key = 'tu_key',
+    api_secret = 'tu_secret'
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
