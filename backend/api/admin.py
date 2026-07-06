@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vino, Cepa, Seccion, Clase
+from .models import Vino, Cepa, Seccion, Clase, Recuerdo
 
 @admin.register(Cepa)
 class CepaAdmin(admin.ModelAdmin):
@@ -25,3 +25,8 @@ class SeccionAdmin(admin.ModelAdmin):
 class ClaseAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'tipo', 'fecha', 'hora', 'lugar')
     search_fields = ('titulo', 'tipo', 'descripcion')
+
+@admin.register(Recuerdo)
+class RecuerdoAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'fecha', 'creado_en')
+    search_fields = ('titulo', 'fecha')
