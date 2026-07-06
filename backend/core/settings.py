@@ -135,9 +135,9 @@ import cloudinary.api
 
 # Configuración de Cloudinary
 cloudinary.config(
-    cloud_name = 'tu_nombre',
-    api_key = 'tu_key',
-    api_secret = 'tu_secret'
+    cloud_name = 'Root',
+    api_key = '347984667758863',
+    api_secret = 'W-VXNUoNm2WW3JkymAWnlXJpbQ4'
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
