@@ -114,15 +114,15 @@ CLOUDINARY_STORAGE = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# 2. Controladores de Almacenamiento oficiales para Django 6
+# 2. Controladores de Almacenamiento oficiales para Django 6 (Modo estándar para evitar caídas)
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
 
-# 3. Solución al error de compatibilidad interna de la librería cloudinary-storage con Django 6
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# 3. Solución al error de compatibilidad interna con la recolección estática
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
