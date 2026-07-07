@@ -9,27 +9,26 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Paths principales
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# Clave secreta de desarrollo
 SECRET_KEY = 'django-insecure-)^c$-ynnl5s!qzx(e$04!==3=$#r@6*8ul%5jeve!#u85v&k56'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'pilares-de-el-monte.onrender.com']
 
-# Application definition
+# Aplicaciones instaladas (El orden aquí es obligatorio para Cloudinary)
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',  # <-- Obligatorio aquí arriba
+    'cloudinary_storage',  # <-- Debe ir estrictamente antes de staticfiles
     'django.contrib.staticfiles',
-    'cloudinary',          # <-- Obligatorio
+    'cloudinary',          # <-- Requerido por la librería
     'corsheaders',
     'rest_framework',
     'api',
@@ -66,7 +65,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# Database
+# Configuración de Base de Datos (Neon)
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}",
@@ -74,7 +73,7 @@ DATABASES = {
     )
 }
 
-# Password validation
+# Validadores
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
@@ -82,33 +81,30 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
-# Internationalization
+# Internacionalización
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Archivos Estáticos (CSS, JS)
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Configuración de permisos CORS
+# Configuración CORS
 CORS_ALLOW_ALL_ORIGINS = True
 
-# ==========================================
-# CONFIGURACIÓN DEFINITIVA DE CLOUDINARY
-# ==========================================
+# ==============================================================================
+# CONFIGURACIÓN DE CLOUDINARY & ALMACENAMIENTO (COMPATIBLE CON DJANGO 6)
+# ==============================================================================
 
-# 1. Configuración estándar (para la librería base)
+# 1. Credenciales de conexión con tus llaves exactas como respaldo seguro
 cloudinary.config(
     cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME', 'pilaresdeelmonte'),
     api_key = os.environ.get('CLOUDINARY_API_KEY', '347984667758863'),
     api_secret = os.environ.get('CLOUDINARY_API_SECRET', 'W-VXNUoNm2WW3JkymAWnlXJpbQ4')
 )
 
-# 2. Configuración ESPECÍFICA para django-cloudinary-storage (La que fuerza el enlace correcto)
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'pilaresdeelmonte'),
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '347984667758863'),
@@ -118,5 +114,15 @@ CLOUDINARY_STORAGE = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Esto obliga a Django a guardar los archivos multimedia en la nube
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# 2. Controladores de Almacenamiento oficiales para Django 6
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# 3. Solución al error de compatibilidad interna de la librería cloudinary-storage con Django 6
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
