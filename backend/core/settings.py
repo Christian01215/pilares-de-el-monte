@@ -100,13 +100,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # 1. Credenciales de conexión con tus llaves exactas como respaldo seguro
 cloudinary.config(
-    cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME', 'pilaresdeelmonte'),
+    cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME', 'ej8m0ald'),
     api_key = os.environ.get('CLOUDINARY_API_KEY', '347984667758863'),
     api_secret = os.environ.get('CLOUDINARY_API_SECRET', 'W-VXNUoNm2WW3JkymAWnlXJpbQ4')
 )
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'pilaresdeelmonte'),
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'ej8m0ald'),
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '347984667758863'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'W-VXNUoNm2WW3JkymAWnlXJpbQ4')
 }
