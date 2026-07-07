@@ -135,7 +135,7 @@ import cloudinary.api
 
 # Configuración de Cloudinary
 cloudinary.config(
-    cloud_name = 'Root',
+    cloud_name = 'pilaresdeelmonte',
     api_key = '347984667758863',
     api_secret = 'W-VXNUoNm2WW3JkymAWnlXJpbQ4'
 )
